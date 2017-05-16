@@ -1,0 +1,58 @@
+<h5 class="cyan-text lighten-2">Chat</h5>
+<hr>
+
+
+<div id="app-mensajes" class="app-mensajes">
+
+  <div class="">
+
+    <div *ngFor="let chat of _cs.chats | async"
+        class="row"
+        [ngClass]="{ 'right-align': _cs.usuario.nombre== chat.nombre}">
+      <div class="avatar-img col s2"
+        [ngClass]="{ 'push-s10': _cs.usuario.nombre== chat.nombre}">
+        <img src="{{chat.photoUrl}}" width="30px" alt="">
+      </div>
+      <p class="col s10 msg-chat"
+         [ngClass]="{ 'pull-s2': _cs.usuario.nombre== chat.nombre}">
+         {{chat.mensaje}}
+      </p>
+
+        <!-- cyan-text lighten-2  blue-grey-text lighten-3 -->
+      <span class="col s12" [ngClass]="{ 'cyan-text lighten-2': _cs.usuario.user.uid== chat.uid,
+                                         'blue-grey-text lighten-3': _cs.usuario.user.uid!= chat.uid}">
+        {{chat.nombre}}
+      </span>
+    </div>
+
+
+    <!--
+      <div class="row left-align">
+        <div class="avatar-img col s2">foto</div>
+        <p class="col s10 msg-chat">Este es un mensaje de Prueba</p>
+        <span class="col s12 blue-grey-text lighten-3">JjAnaya</span>
+      </div>
+
+      <div class="row right-align">
+        <p class="col s10 msg-chat">Este es un mensaje de Prueba</p>
+        <div class="avatar-img col s2">foto</div>
+        <span class="col s12 blue-grey-text lighten-3">JjAnaya</span>
+      </div>
+
+    -->
+
+  </div>
+
+</div>
+
+
+
+      <div class="input-field ">
+        <i class="material-icons prefix">message</i>
+        <input id="input-msg" [(ngModel)]="mensaje"
+                 name="mensaje"
+                 type="text"
+                 (keyup.enter)="enviar()"
+                 class="validate">
+        <label for="input-msg">Mensaje...</label>
+      </div>

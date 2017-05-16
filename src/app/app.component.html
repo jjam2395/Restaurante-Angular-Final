@@ -1,0 +1,34 @@
+
+  <div class="jcontainer main-container">
+    <h1>Chatea Con Nosotros</h1>
+    <hr>
+
+    <div *ngIf="_cs.usuario"  class="row">
+      <div class="col s12 right-align">
+        <button (click)="_cs.logout()" type="button" class="btn waves-effect">Salir</button>
+      </div>
+    </div>
+
+    <div *ngIf="!_cs.usuario">
+      <app-login></app-login>
+    </div>
+
+
+    <div *ngIf="_cs.usuario" class="row">
+      <div class="chat-window card col s12 m4">
+        <app-chat></app-chat>
+      </div>
+    </div>
+
+  </div>
+
+
+<!--
+
+<ul>
+  <li class="text" *ngFor="let chat of chats | async ">
+        {{chat | json}}{{chat.$key}}
+
+  </li>
+</ul>
+-->
