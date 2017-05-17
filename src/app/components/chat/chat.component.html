@@ -11,7 +11,7 @@
         [ngClass]="{ 'right-align': _cs.usuario.nombre== chat.nombre}">
       <div class="avatar-img col s2"
         [ngClass]="{ 'push-s10': _cs.usuario.nombre== chat.nombre}">
-        <img src="{{chat.photoUrl}}" width="30px" alt="">
+        <img class="circle responsive-img" src="{{chat.photoUrl}}" width="30px" alt="">
       </div>
       <p class="col s10 msg-chat"
          [ngClass]="{ 'pull-s2': _cs.usuario.nombre== chat.nombre}">

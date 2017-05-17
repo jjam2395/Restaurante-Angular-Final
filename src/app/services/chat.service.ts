@@ -9,6 +9,7 @@ import * as firebase from 'firebase/app';
 export class ChatService {
 
   chats: FirebaseListObservable<any[]>;
+  chats1: FirebaseListObservable<any[]>;
   usuario:any={};
     constructor(private db: AngularFireDatabase, public afAuth:AngularFireAuth) {
       //this.chats = db.list('/chats');
@@ -21,14 +22,35 @@ export class ChatService {
     }
 
     cargarMensajes(){
-      this.chats = this.db.list('/chats', {
+      this.chats = this.db.list('/chats/'+this.usuario.user.uid, {
         query:{
           limitToLast:20,
           orderByKey:true
         }
       })
-
       return this.chats;
+    }
+
+    cargarUsuarios(){
+      this.chats1 = this.db.list('/chats', {
+        query:{
+          limitToLast:20,
+          orderByKey:true
+        }
+      })
+    return this.chats1;
+    }
+
+    seleccionarUsuario(userK:string){
+      var usuarioSeleccionado= userK;
+      console.log(userK);
+        this.chats = this.db.list('/chats/'+userK,{
+          query:{
+            limitToLast:20,
+            orderByKey:true
+          }
+        })
+        return this.chats;
     }
 
 
@@ -40,8 +62,9 @@ export class ChatService {
         uid:this.usuario.user.uid,
         photoUrl: this.usuario.user.photoURL
       }
-
+      if (mensaje){
       return this.chats.push(mensaje);
+      }
     }
 
     login( proveedor:string) {
@@ -50,6 +73,7 @@ export class ChatService {
         console.log(data);
         this.usuario =data;
         localStorage.setItem('usuario', JSON.stringify(data));
+        console.log(this.afAuth)
       });
     }
 

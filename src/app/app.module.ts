@@ -13,12 +13,14 @@ import {ChatService} from './services/chat.service';
 import { AppComponent } from './app.component';
 import { ChatComponent } from './components/chat/chat.component';
 import { LoginComponent } from './components/login/login.component';
+import { UsuariosComponent } from './components/usuarios/usuarios.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ChatComponent,
-    LoginComponent
+    LoginComponent,
+    UsuariosComponent
   ],
   imports: [
     BrowserModule,
