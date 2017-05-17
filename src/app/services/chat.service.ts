@@ -9,14 +9,12 @@ import * as firebase from 'firebase/app';
 export class ChatService {
 
   chats: FirebaseListObservable<any[]>;
-  usuario:any={
-    nombre:"Juan Anaya"
-  };
+  usuario:any={};
     constructor(private db: AngularFireDatabase, public afAuth:AngularFireAuth) {
       //this.chats = db.list('/chats');
 
       if (localStorage.getItem('usuario')){
-        this.usuario = JSON.parse(localStorage.getItem('Usuario'));
+        this.usuario = JSON.parse(localStorage.getItem('usuario'));
       }else{
         this.usuario = null;
       }
@@ -43,7 +41,7 @@ export class ChatService {
         photoUrl: this.usuario.user.photoURL
       }
 
-      return this.chats.push( mensaje );
+      return this.chats.push(mensaje);
     }
 
     login( proveedor:string) {
@@ -51,12 +49,12 @@ export class ChatService {
     .then( data =>{
         console.log(data);
         this.usuario =data;
-        localStorage.setItem('Usuario', JSON.stringify(data));
+        localStorage.setItem('usuario', JSON.stringify(data));
       });
     }
 
     logout() {
-      localStorage.removeItem('usaurio');
+      localStorage.removeItem('usuario');
       this.usuario = null;
       this.afAuth.auth.signOut();
     }
