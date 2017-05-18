@@ -1,5 +1,8 @@
 
 
 export interface Mensaje{
-  mensaje?:string;
+  nombre:string;
+  mensaje:string;
+  uid:string;
+  photoUrl:string;
 }

@@ -17,7 +17,6 @@
          [ngClass]="{ 'pull-s2': _cs.usuario.nombre== chat.nombre}">
          {{chat.mensaje}}
       </p>
-
         <!-- cyan-text lighten-2  blue-grey-text lighten-3 -->
       <span class="col s12" [ngClass]="{ 'cyan-text lighten-2': _cs.usuario.user.uid== chat.uid,
                                          'blue-grey-text lighten-3': _cs.usuario.user.uid!= chat.uid}">
@@ -40,9 +39,6 @@
     -->
   </div>
 </div>
-
-
-
       <div class="input-field ">
         <i class="material-icons prefix">message</i>
         <input id="input-msg" [(ngModel)]="mensaje"

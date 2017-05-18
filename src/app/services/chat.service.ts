@@ -57,15 +57,19 @@ export class ChatService {
 
     agregarMensaje(texto:string){
 
-      let mensaje:Mensaje={
-        nombre :this.usuario.user.displayName,
+      let mensaje:any={
+        nombre:this.usuario.user.displayName,
         mensaje: texto,
         uid:this.usuario.user.uid,
         photoUrl: this.usuario.user.photoURL
       }
+      if(this.admin==false){
+        this.chats.update('/',{
+          nombre:this.usuario.user.displayName
+        });
+      }
       return this.chats.push(mensaje);
-
-    }
+  }
 
     login( proveedor:string) {
       this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider(),)
@@ -80,9 +84,6 @@ export class ChatService {
         }else{
           this.admin=false;
         }
-        this.chats.update('/',{
-          nombre:this.usuario.user.displayName
-        });
       });
 
     }
