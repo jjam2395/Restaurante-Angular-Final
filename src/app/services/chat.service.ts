@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import { Mensaje } from '../interfaces/mensaje.interface';
+import { DatosUsuario } from '../interfaces/DatosUsuario.interface';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 
@@ -54,17 +55,11 @@ export class ChatService {
     }
 
 
-    agregarMensaje(texto:string){
-
+    agregarMensaje(texto){
       let mensaje:Mensaje={
-        nombre :this.usuario.user.displayName,
         mensaje: texto,
-        uid:this.usuario.user.uid,
-        photoUrl: this.usuario.user.photoURL
       }
-      if (mensaje){
-      return this.chats.push(mensaje);
-      }
+      return this.chats.update('mensaje',mensaje);
     }
 
     login( proveedor:string) {
@@ -73,7 +68,12 @@ export class ChatService {
         console.log(data);
         this.usuario =data;
         localStorage.setItem('usuario', JSON.stringify(data));
-        console.log(this.afAuth)
+
+        let datosUsuario:DatosUsuario={
+          nombre:this.usuario.user.displayName,
+          photoUrl:this.usuario.user.photoUrl
+        }
+        return this.chats.push(datosUsuario);
       });
     }
 
