@@ -1,5 +1,6 @@
 
-<div *ngIf="_cs.admin!=false"  class="">
-
-<button  *ngFor="let chat1 of _cs.chats1 | async" (click)="seleccionar(chat1.$key)" type="button" name="button">{{chat1.nombre}}</button>
+<div *ngIf="_cs.admin!=false"  class="collection">
+  <div *ngFor="let chat1 of _cs.chats1 | async" class="collection-item  green-text text-accent-4 "> Nombre: {{chat1.nombre}}
+    <button  (click)="seleccionar(chat1.$key)" class="right btn waves-effect" type="button" name="button">Ver conversacion</button>
+  </div>
 </div>
