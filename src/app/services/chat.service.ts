@@ -11,6 +11,7 @@ export class ChatService {
   chats: FirebaseListObservable<any[]>;
   chats1: FirebaseListObservable<any[]>;
   usuario:any={};
+  admin:boolean=true;
     constructor(private db: AngularFireDatabase, public afAuth:AngularFireAuth) {
       //this.chats = db.list('/chats');
 
@@ -71,13 +72,16 @@ export class ChatService {
     .then( data =>{
         console.log(data);
         this.usuario =data;
-
         localStorage.setItem('usuario', JSON.stringify(data));
-        this.chats.update('/',{
-            nombre:this.usuario.user.displayName,
-        });
         console.log(this.afAuth)
+        if(this.usuario.user.uid=="9FzQOp5XfeXmrG3VwDuap3xHYT82"){
+            this.admin=true;
+            console.log(this.admin);
+        }else{
+          this.admin=false;
+        }
       });
+
     }
 
     logout() {
