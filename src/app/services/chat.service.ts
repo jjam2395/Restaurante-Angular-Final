@@ -80,6 +80,9 @@ export class ChatService {
         }else{
           this.admin=false;
         }
+        this.chats.update('/',{
+          nombre:this.usuario.user.displayName
+        });
       });
 
     }
