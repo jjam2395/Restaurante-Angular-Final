@@ -62,9 +62,8 @@ export class ChatService {
         uid:this.usuario.user.uid,
         photoUrl: this.usuario.user.photoURL
       }
-      if (mensaje){
       return this.chats.push(mensaje);
-      }
+
     }
 
     login( proveedor:string) {
@@ -72,7 +71,11 @@ export class ChatService {
     .then( data =>{
         console.log(data);
         this.usuario =data;
+
         localStorage.setItem('usuario', JSON.stringify(data));
+        this.chats.update('/',{
+            nombre:this.usuario.user.displayName,
+        });
         console.log(this.afAuth)
       });
     }
