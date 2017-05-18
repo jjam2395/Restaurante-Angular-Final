@@ -6,7 +6,7 @@
 
   <div class="">
 
-    <div *ngFor="let chat of _cs.chats | async "
+    <div *ngFor="let chat of _cs.chats | async"
         class="row"
         [ngClass]="{ 'right-align': _cs.usuario.nombre== chat.nombre}">
       <div class="avatar-img col s2"
@@ -25,7 +25,6 @@
       </span>
     </div>
 
-
     <!--
       <div class="row left-align">
         <div class="avatar-img col s2">foto</div>
@@ -38,11 +37,8 @@
         <div class="avatar-img col s2">foto</div>
         <span class="col s12 blue-grey-text lighten-3">JjAnaya</span>
       </div>
-
     -->
-
   </div>
-
 </div>
 
 
