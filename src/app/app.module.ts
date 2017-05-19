@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-import { environment } from '../environments/environment';
+import { firebaseConfig} from '../environments/firebase.config';
 
 //Servicios
 import {ChatService} from './services/chat.service';
@@ -26,7 +26,7 @@ import { UsuariosComponent } from './components/usuarios/usuarios.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule
   ],
