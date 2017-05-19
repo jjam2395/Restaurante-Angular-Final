@@ -1,0 +1,36 @@
+nav.top-nav {
+  box-shadow: none;
+  background-color: #a5d6a7;
+}
+
+nav.top-nav a.page-title {
+  font-size: 30px;
+  font-family: 'Pacifico';
+}
+
+.side-nav li {
+  float: none;
+  font-family: 'Comfortaa';
+}
+
+.side-nav li a {
+  font-size: 1.9em;
+}
+
+.side-nav .collapsible-body, .side-nav.fixed .collapsible-body {
+  padding-top: 10px;
+}
+
+ul.side-nav.fixed ul.collapsible-accordion a.collapsible-header {
+  padding: 0 30px;
+}
+
+@media only screen and (max-width: 992px) {
+  .side-nav a {
+    padding: 0 30px;
+  }
+}
+
+ul.side-nav.fixed li {
+  line-height: 4em;
+}

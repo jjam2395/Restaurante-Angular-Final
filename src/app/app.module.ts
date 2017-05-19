@@ -11,6 +11,7 @@ import { environment } from '../environments/environment';
 import {ChatService} from './services/chat.service';
 
 import { AppComponent } from './app.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 import { ChatComponent } from './components/chat/chat.component';
 import { LoginComponent } from './components/login/login.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
@@ -18,6 +19,7 @@ import { UsuariosComponent } from './components/usuarios/usuarios.component';
 @NgModule({
   declarations: [
     AppComponent,
+    NavbarComponent,
     ChatComponent,
     LoginComponent,
     UsuariosComponent

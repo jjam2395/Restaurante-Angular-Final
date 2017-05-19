@@ -1,37 +1,47 @@
+<div class="contenedor-chat">
+  <header id="header">
+    <navbar></navbar>
+  </header>
+  <main id="main">
+    <div class="jcontainer main-container">
+      <h2 id="chat-letra" class="center-align">Chat en línea | Kubo Chat</h2>
+      <hr>
 
-  <div class="jcontainer main-container">
-    <h1>Chatea Con Nosotros</h1>
-    <hr>
+      <div *ngIf="_cs.usuario" class="row">
+        <div class="col s12 right-align">
+          <button (click)="_cs.logout()" type="button" class="btn waves-effect">
+            Salir <i class="fa fa-times-circle"></i></button>
+        </div>
+      </div>
 
-    <div *ngIf="_cs.usuario"  class="row">
-      <div class="col s12 right-align">
-        <button (click)="_cs.logout()" type="button" class="btn waves-effect">Salir</button>
+      <div *ngIf="!_cs.usuario">
+        <app-login></app-login>
+      </div>
+
+
+      <div *ngIf="_cs.usuario" class="row">
+        <div class="col s12 m6 ">
+          <app-usuarios></app-usuarios>
+        </div>
+        <div class="chat-window card col s12 m6">
+          <app-chat></app-chat>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer id= "footer" class="page-footer green darken-1">
+    <div class="footer-copyright col s12">
+      <div class="container center">
+        <p>2017 Copyright Text | Derechos reservados</p>
+        <a class="grey-text text-lighten-4" href="https://www.facebook.com/analuisa.islasavila">@AnaIslas</a>
+        <a class="grey-text text-lighten-4" href="https://www.facebook.com/jjam2395">@JuanAnaya</a>
+        <a class="grey-text text-lighten-4" href="https://www.facebook.com/cecy.cortez.1428">@CeciliaCortéz</a>
       </div>
     </div>
-
-    <div *ngIf="!_cs.usuario">
-      <app-login></app-login>
-    </div>
-
-
-    <div *ngIf="_cs.usuario" class="row">
-      <div class="col s12 m6 ">
-        <app-usuarios></app-usuarios>
-      </div>
-      <div class="chat-window card col s12 m6">
-        <app-chat></app-chat>
-      </div>
-    </div>
-
-  </div>
-
-
-<!--
-
-<ul>
-  <li class="text" *ngFor="let chat of chats | async ">
-        {{chat | json}}{{chat.$key}}
-
-  </li>
-</ul>
--->
+  </footer>
+</div>
+<script type='text/javascript' src='https://code.jquery.com/jquery-2.1.1.min.js'></script>
+<script type="text/javascript" src="src/static/js/materialize.min.js"></script>
+<script type="text/javascript" src="src/static/js/index.js"></script>
