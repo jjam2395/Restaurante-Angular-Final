@@ -3,12 +3,12 @@ jQuery(document).ready(function($){
     //SIDENAV
     $(".button-collapse-sideNav").sideNav({
       menuWidth: 280,
-      closeOnClick: true
     });
 
     $(".button-collapse").sideNav({
       menuWidth: 280,
-      closeOnClick: true
+      edge: 'left', // Choose the horizontal origin
+      draggable: true // Choose whether you can drag to open on touch screens
     });
     $('.chips').material_chip();
 

@@ -5,11 +5,4 @@ $(document).ready(function() {
     edge: 'left', // Choose the horizontal origin
     draggable: true // Choose whether you can drag to open on touch screens
   });
-  $('.slider').slider({
-    indicators: false,
-    height: 300
-  });
-  $('.modal').modal();
-  $('select').material_select();
-  $('#textarea1').trigger('autoresize');
 });
