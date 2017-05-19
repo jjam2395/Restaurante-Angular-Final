@@ -1,9 +1,7 @@
 #main, #footer {
   padding-left: 280px;
 }
-#main{
-  background-image: url(https://s-media-cache-ak0.pinimg.com/originals/80/46/14/804614cd8b50c60c0aaa9b0e10a84e24.jpg);
-}
+
 @media only screen and (max-width: 992px) {
   #main, #footer {
     padding-left: 0;
