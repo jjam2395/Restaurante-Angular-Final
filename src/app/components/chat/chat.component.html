@@ -7,9 +7,9 @@
 
     <div *ngFor="let chat of _cs.chats | async"
         class="row"
-        [ngClass]="{ 'right-align': _cs.usuario.nombre== chat.nombre}">
+        [ngClass]="{ 'right-align': _cs.usuario.user.nameDisplay== chat.nombre}">
       <div class="avatar-img col s2"
-        [ngClass]="{ 'push-s10': _cs.usuario.nombre== chat.nombre}">
+        [ngClass]="{ 'push-s10': _cs.usuario.user.nameDisplay== chat.nombre}">
         <img class="circle responsive-img" src="{{chat.photoUrl}}" width="30px" alt="">
       </div>
       <p class="col s10 msg-chat"
