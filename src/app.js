@@ -8,7 +8,7 @@ jQuery(document).ready(function($){
     $(".button-collapse").sideNav({
       menuWidth: 280,
       edge: 'left', // Choose the horizontal origin
-      draggable: true // Choose whether you can drag to open on touch screens
+      //draggable: true // Choose whether you can drag to open on touch screens
     });
     $('.chips').material_chip();
 
